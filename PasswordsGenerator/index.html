@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+    <main>
+        <h1>Password Generator</h1>
+        
+        <div class="output-container">
+            <input type="text" id="password-output" readonly placeholder="P4$W0rD!">
+            <button id="copy-button" aria-label="Copy password">
+                <i class="fa-solid fa-copy"></i>
+            </button>
+        </div>
+
+        <form id="configuration-panel">
+            <fieldset>
+                <div class="length-container">
+                    <div class="length-label-group">
+                        <label for="length-slider">Character length</label> 
+                        <span id="length-value">0</span> 
+                    </div>
+                    <input type="range" id="length-slider" min="0" max="20" value="0">
+                </div>
+
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="characteristics" value="uppercase">Include uppercase letters
+                    </label>
+                    <label>
+                        <input type="checkbox" name="characteristics" value="lowercase">Include lowercase letters
+                    </label>
+                    <label>
+                        <input type="checkbox" name="characteristics" value="numbers">Include numbers
+                    </label>
+                    <label>
+                        <input type="checkbox" name="characteristics" value="symbols">Include symbols
+                    </label>
+                </div>
+            </fieldset>
+
+            <div id="strength-container">
+                <p>Strength</p>
+                <div class="strength-display">
+                    <span id="strength-text"></span>
+                    <div class="strength-bars">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="generate-button">Generate</button>
+        </form>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
