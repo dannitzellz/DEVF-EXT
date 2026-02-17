@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+    --very-dark-grey: #18171F;
+    --dark-grey: #23222B;
+    --medium-grey: #403F4C;
+    --light-grey: #E7E5EB;
+    --white: #FFFFFF;
+    --green: #a4ffaf;
+    --yellow: #f8cd65;
+    --red: #ff6b6b;
+    --cyan: #5edfff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  min-height: 100vh;      /* Ocupa toda la altura de la pantalla */
+  display: flex;          
+  justify-content: center; /* Centra horizontal */
+  align-items: center;     /* Centra vertical */
+  color: var(--light-grey);
+  background-color: var(--very-dark-grey);
+  font-family: 'JetBrains Mono', monospace; 
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 30rem;
+    gap: 1.5rem;
+    color: var(--medium-grey);
+}
+
+h1 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.output-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: var(--dark-grey);
+    color: var(--light-grey);
+}
+
+#copy-button {
+    background: transparent;
+    border: none;
+    color: var(--green);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#copy-button:hover {
+    color: var(--white);
+}
+
+#configuration-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+    background-color: var(--dark-grey);
+    color: var(--light-grey);
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+#password-output {
+    background-color: transparent;
+    color: var(--light-grey);
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: 550;
+    
+}
+
+::placeholder{
+        font-size: 1.5rem;
+        font-weight: 550;
+        color: var(--medium-grey);
+}
+
+#generate-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--green);
+    color: var(--very-dark-grey);
+    border: 2px solid transparent;
+    padding: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#generate-button:hover {
+    background-color: transparent;
+    border: 2px solid var(--green);
+    color: var(--green);
+}
+
+.length-label-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#length-value {
+    font-size: 2rem;
+    font-weight: 550;
+    color: var(--green);
+}
+
+#strength-container {
+    background-color: var(--very-dark-grey);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--medium-grey);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.strength-display {
+    display: flex;
+    align-items: center;
+}
+
+#strength-text {
+    color: var(--light-grey);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-right: 1rem;
+}
+
+.strength-bars{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.bar {
+    width: 10px;
+    height: 20px;
+    border: 2px solid var(--medium-grey);
+}
+
+#length-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: var(--very-dark-grey);
+    border-radius: 5px;
+    outline: none;
+}
+
+#length-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background-color: var(--light-grey);
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid var(--light-grey);;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+#length-slider:hover::-webkit-slider-thumb {
+    background-color: var(--very-dark-grey);
+    border: 2px solid var(--green);
+}
+
+/* Estilos para Firefox */
+#length-slider::-moz-range-thumb {
+    height: 24px;
+    width: 24px;
+    background-color: var(--light-grey);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+/*caja de checkbox base*/
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--light-grey);
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: all 0.2s;
+}
+
+input[type="checkbox"]:hover {
+    border-color: var(--green);
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--green);
+    border-color: var(--green);
+    background-image: url("data:image/svg+xml,%3Csvg width='14' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%2318171F' stroke-width='3' fill='none' d='M1 5.607 4.393 9l8-8'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.checkbox-group {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-group label:hover {
+    color: var(--green);
+}
