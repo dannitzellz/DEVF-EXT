@@ -71,7 +71,7 @@ formulario.addEventListener("submit", function(event) {
     comentarios.push(nuevoComentario);
     localStorage.setItem("comentarios", JSON.stringify(comentarios));
 
-    const nuevoNodo = crearElementoComentario(nuevoComentario, comentarios.length - 1);
+    const nuevoNodo = crearElementoComentario(nuevoComentario);
     containerComentarios.prepend(nuevoNodo);
 
     comentarioTextBox.value = "";
