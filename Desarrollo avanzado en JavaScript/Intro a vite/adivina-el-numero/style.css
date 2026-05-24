@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@1,700&family=Syne:wght@800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ffde4d;
+  background-image: 
+    radial-gradient(#ff6b6b 20%, transparent 20%),
+    radial-gradient(#4ecdc4 20%, transparent 20%),
+    linear-gradient(45deg, #333 25%, transparent 25%, transparent 75%, #333 75%, #333),
+    linear-gradient(45deg, #333 25%, #ffde4d 25%, #ffde4d 75%, #333 75%, #333);
+  background-size: 60px 60px, 60px 60px, 30px 30px, 30px 30px;
+  background-position: 0 0, 30px 30px, 0 0, 15px 15px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Comic Neue', cursive;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 4.5rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 
+    4px 4px 0px #ff3366, 
+    8px 8px 0px #000000,
+    -2px -2px 0px #00f0ff;
+  transform: rotate(-4deg) skewX(-10deg);
+  background: #000000;
+  padding: 15px 40px;
+  border: 6px dashed #00f0ff;
+  margin-bottom: 50px;
+  letter-spacing: -2px;
+  animation: jitter 0.3s infinite alternate;
+}
+
+p:first-of-type {
+  background: #ff6b6b;
+  color: #ffffff;
+  font-size: 1.5rem;
+  padding: 20px;
+  border: 4px solid #000000;
+  border-radius: 50px 0px 50px 0px;
+  box-shadow: 12px 12px 0px #4ecdc4;
+  transform: rotate(2deg);
+  max-width: 450px;
+  text-align: center;
+  margin-bottom: 40px;
+  border-style: outset;
+}
+
+input[type="number"] {
+  width: 180px;
+  height: 100px;
+  font-family: 'Syne', sans-serif;
+  font-size: 3.5rem;
+  text-align: center;
+  border: 8px solid #000000;
+  background: #ffffff;
+  color: #ff3366;
+  clip-path: polygon(0% 15%, 100% 0%, 85% 85%, 15% 100%);
+  transform: rotate(-3deg);
+  margin-bottom: 30px;
+  outline: none;
+}
+
+input[type="number"]:focus {
+  background: #00f0ff;
+  color: #000000;
+  clip-path: polygon(15% 0%, 100% 15%, 85% 100%, 0% 85%);
+}
+
+button {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: #4ecdc4;
+  color: #000000;
+  padding: 20px 50px;
+  border: 6px solid #000000;
+  border-radius: 0;
+  box-shadow: -10px 10px 0px #ff3366, -20px 20px 0px #000000;
+  cursor: pointer;
+  transform: translate(10px, -10px) rotate(5deg);
+  transition: all 0.1s ease-in-out;
+  margin-bottom: 40px;
+}
+
+button:hover {
+  background: #ff3366;
+  color: #ffffff;
+  box-shadow: -5px 5px 0px #4ecdc4, -10px 10px 0px #000000;
+  transform: translate(5px, -5px) rotate(-2deg);
+}
+
+button:active {
+  box-shadow: 0px 0px 0px #000000;
+  transform: translate(-10px, 10px) rotate(0deg);
+}
+
+#mensaje {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000000;
+  background: #ffffff;
+  padding: 15px 30px;
+  border: 5px solid #000000;
+  box-shadow: 8px 8px 0px #ffde4d;
+  transform: scale(1.1) rotate(-1deg);
+  min-height: 60px;
+  text-align: center;
+}
+
+#mensaje:not(:empty) {
+  animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes jitter {
+  0% { transform: rotate(-4deg) skewX(-10deg) translate(0, 0); }
+  100% { transform: rotate(-3.5deg) skewX(-9deg) translate(2px, -1px); }
+}
+
+@keyframes pop {
+  0% { transform: scale(0) rotate(20deg); }
+  100% { transform: scale(1.1) rotate(-1deg); }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
