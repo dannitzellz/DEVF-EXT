@@ -1,0 +1,252 @@
+/* ==========================================================================
+   RESET Y VARIABLES (Estilo Memphis / Wacky Pomo)
+   ========================================================================== */
+:root {
+  --bg-color: #f0f0f7;
+  --primary-pink: #ff6bc7;
+  --electric-teal: #00f0ff;
+  --acid-yellow: #fff340;
+  --dark-charcoal: #1a1a24;
+  --border-strike: 4px solid #1a1a24;
+  --retro-shadow: 8px 8px 0px #1a1a24;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', 'Impact', system-ui, sans-serif; /* Un toque rebelde */
+}
+
+body {
+  background-color: var(--bg-color);
+  /* Fondo de cuadrícula retro */
+  background-image: 
+    linear-gradient(rgba(26, 26, 36, 0.05) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(26, 26, 36, 0.05) 2px, transparent 2px);
+  background-size: 30px 30px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Container Principal dividido en dos */
+.page-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 600px;
+  background: white;
+  border: var(--border-strike);
+  box-shadow: 15px 15px 0px var(--primary-pink);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Modificamos comportamiento en pantallas pequeñas */
+@media (max-width: 768px) {
+  .page-container {
+    grid-template-columns: 1fr;
+  }
+  .graphics-section {
+    display: none; /* Escondemos los gráficos en móvil para priorizar el formulario */
+  }
+}
+
+/* ==========================================================================
+   SECCIÓN DEL FORMULARIO
+   ========================================================================== */
+.form-section {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--dark-charcoal);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+  display: inline-block;
+  background: var(--acid-yellow);
+  padding: 0.5rem 1rem;
+  border: var(--border-strike);
+  box-shadow: var(--retro-shadow);
+  width: fit-content;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark-charcoal);
+  letter-spacing: 1px;
+}
+
+input {
+  padding: 1rem;
+  font-size: 1rem;
+  border: var(--border-strike);
+  border-radius: 4px;
+  background: var(--bg-color);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  background: #fff;
+  transform: translate(-4px, -4px);
+  box-shadow: 4px 4px 0px var(--electric-teal);
+}
+
+button {
+  cursor: pointer;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: var(--electric-teal);
+  border: var(--border-strike);
+  box-shadow: var(--retro-shadow);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px var(--dark-charcoal);
+}
+
+button:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px var(--dark-charcoal);
+}
+
+#errors {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  background: #ffdee9;
+  padding: 0.5rem;
+  border-left: 5px solid red;
+  display: none; /* Se activa con JS cuando haya errores */
+}
+
+
+/* ==========================================================================
+   SECCIÓN GRÁFICA (Wacky Shapes & Animations)
+   ========================================================================== */
+.graphics-section {
+  background-color: var(--dark-charcoal);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Patrón de puntos abstractos para el fondo oscuro */
+.graphics-section::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(var(--primary-pink) 15%, transparent 16%);
+  background-size: 20px 20px;
+  opacity: 0.2;
+}
+
+.wacky-shapes {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Base de las formas geométricas */
+.shape {
+  position: absolute;
+  filter: drop-shadow(5px 5px 0px rgba(0,0,0,0.5));
+}
+
+/* Círculo Loco */
+.circle {
+  width: 120px;
+  height: 120px;
+  background: var(--acid-yellow);
+  border: 4px solid white;
+  border-radius: 50%;
+  top: 20%;
+  left: 20%;
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+/* Bloque Cuadrado Giratorio */
+.square-blob {
+  width: 100px;
+  height: 100px;
+  background: var(--primary-pink);
+  border: var(--border-strike);
+  top: 55%;
+  left: 55%;
+  animation: spin 8s linear infinite;
+}
+
+/* Triángulo Abstracto hecho con bordes CSS */
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 110px solid var(--electric-teal);
+  top: 15%;
+  left: 60%;
+  animation: wobble 4s ease-in-out infinite alternate;
+}
+
+/* Resorte / ZigZag improvisado con pseudoelementos */
+.zigzag {
+  width: 80px;
+  height: 20px;
+  background: #fff;
+  top: 65%;
+  left: 15%;
+  transform: rotate(-25deg);
+  animation: bounceWacky 3s ease-in-out infinite alternate;
+}
+
+
+/* ==========================================================================
+   ANIMACIONES (Keyframes)
+   ========================================================================== */
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-30px) scale(1.1) rotate(15deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes wobble {
+  0% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(20px) rotate(10deg); }
+  100% { transform: translateX(-10px) rotate(-15deg); }
+}
+
+@keyframes bounceWacky {
+  0% { transform: scaleY(1) skewX(0deg) rotate(-25deg); }
+  100% { transform: scaleY(1.4) skewX(15deg) rotate(-15deg); background: var(--acid-yellow); }
+}
